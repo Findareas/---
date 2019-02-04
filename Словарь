@@ -1,0 +1,32 @@
+import shelve
+
+db=shelve.open('db_file')
+
+class slovar():
+
+    def eng():
+        key = input('Введите слово на английском: ')
+        print(db.get(key) or 'Нет в словаре')
+
+    def rus():
+        rus_words = dict([[v, k] for k, v in db.items()])
+        find_word = input("Введите слово: ")
+        print(rus_words.get(find_word) or print('Искомое слово не найдено'))
+
+    def new():
+        newkey = input('Ввести новое слово: ')
+        newvalue = input('Ввести перевод: ')
+        db[newkey] = newvalue
+        db.update()
+        db.close()
+
+    while __name__=='__main__':
+        start=input("Введите 'англ' для получения перевода с русского на английский и 'rus' для получения перевода с английского на русский. Для добавления в словарь используйте 'new'")
+        if start == 'англ':
+          eng()
+        elif start == 'rus':
+           rus()
+        elif start == 'new':
+         new()
+        else:
+          print('Введите один из предложенных вариантов')
