@@ -1,0 +1,20 @@
+import shelve
+
+db = shelve.open('db_file', 'n')
+db['earth']='земля'
+db['word']='слово'
+db['catch']='ловить'
+db['book']='книга'
+db['table']='стол'
+db['chair']='стул'
+db['window']='окно' #Ключи-значения словаря
+db['door']='дверь'
+db['sky']='небо'
+db['cat']='кот'
+db['dog']='собака'
+db['pig']='свинья'
+db['pigeon']='голубь'
+db['armchair']='кресло'
+db['computer']='компьютер'
+
+db.close()
